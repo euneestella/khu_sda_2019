@@ -1,5 +1,5 @@
 install.packages("gplots")
-library(gplots) ## Å½»ö °æ·Î¿¡ ÆĞÅ°Áö¸¦ attach
+library(gplots) ## íƒìƒ‰ ê²½ë¡œì— íŒ¨í‚¤ì§€ë¥¼ attach
 
 setwd("C:/Users/eunee/sda/data")
 load("demog_5var.RData")
@@ -8,21 +8,21 @@ ndemog$year_c <- floor(ndemog$year/10)-197
 ndemog$tfr_c <- cut(ndemog$tfr, breaks = c(-Inf, 1.3, 2.1, Inf), labels = c("llf", "repl", "high"))
 attach(ndemog)
 
-plotmeans(tfr ~ rep(1, length(tfr))) ## Æò±Õ°ú ½Å·Ú±¸°£ ±×¸²
+plotmeans(tfr ~ rep(1, length(tfr))) ## í‰ê· ê³¼ ì‹ ë¢°êµ¬ê°„ ê·¸ë¦¼
 t.test(tfr)
 plotmeans(tfr ~ rep(1, length(tfr)), xlab = "TFRs", ylab = "Mean and 95% CI", barcol = 1, n.label = FALSE, legends = "")
 
-## Á¶»ç¸Á·üÀÇ ¹üÁÖÈ­
+## ì¡°ì‚¬ë§ë¥ ì˜ ë²”ì£¼í™”
 cdr_c <- cut(cdr, breaks = c(-Inf, 6, 7, Inf), labels = c("LT6", "6-LT7", "EToMT7"))
 plotmeans(tfr ~ cdr_c)
 
-## º¯¼öÀÇ °ªÀÌ ´Ù¸¥ º¯¼öÀÇ °ª¿¡ µû¶ó º¯ÇÒ ¶§, ÇÔ¼öÀÇ °ªÀ» º¸¿©¶ó : tapply
-tapply(tfr, cdr_c, t.test) ## cdr_c¿¡ µû¶ó tfrÀÌ º¯ÇÒ ¶§ t.test °ªÀÌ ¾î¶»°Ô ´Ş¶óÁö´Â°¡?
+## ë³€ìˆ˜ì˜ ê°’ì´ ë‹¤ë¥¸ ë³€ìˆ˜ì˜ ê°’ì— ë”°ë¼ ë³€í•  ë•Œ, í•¨ìˆ˜ì˜ ê°’ì„ ë³´ì—¬ë¼ : tapply ì´ìš©
+tapply(tfr, cdr_c, t.test) ## cdr_cì— ë”°ë¼ tfrì´ ë³€í•  ë•Œ t.test ê°’ì´ ì–´ë–»ê²Œ ë‹¬ë¼ì§€ëŠ”ê°€?
 plotmeans(tfr ~ cdr_c, xlab = "TFRs", ylab = "Mean and 95% CI", barcol = 1, barwidth = 2, n.label = FALSE, connect = FALSE, legends = "")
-lines(c(0.97, 1.03), c(1.303, 1.303), lwd = 2) ## ÇÏÇÑ
-lines(c(0.97, 1.03), c(1.459, 1.459), lwd = 2) ## »óÇÑ
-lines(c(1,1), c(1.303, 1.459), lwd = 2) ## µÑÀÇ ¿¬°á
+lines(c(0.97, 1.03), c(1.303, 1.303), lwd = 2) ## í•˜í•œ
+lines(c(0.97, 1.03), c(1.459, 1.459), lwd = 2) ## ìƒí•œ
+lines(c(1,1), c(1.303, 1.459), lwd = 2) ## ë‘˜ì˜ ì—°ê²°
 
-## ¼¼ Áı´Ü °£ Æò±Õ ºñ±³
-summary(aov(tfr ~ cdr_c)) ## ¿µ°¡¼³ ±â°¢ 
+## ì„¸ ì§‘ë‹¨ ê°„ í‰ê·  ë¹„êµ
+summary(aov(tfr ~ cdr_c)) ## ì˜ê°€ì„¤ ê¸°ê° 
 dev.off()
