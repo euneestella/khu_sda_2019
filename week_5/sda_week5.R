@@ -4,7 +4,7 @@ demog <- data.frame(t(demog))
 
 
 ## 데이터 정리 1
-sdemog <- demog[,c("X1", "X6", "X8", "X10", "X14")]
+sdemog <- demog[,c("X1", "X6", "X8", "X11", "X15")]
 names(sdemog) <- c("year", "cdr", "tfr", "marn", "le0")
 sdemog <- sdemog[-1, ]
 rownames(sdemog) <- NULL
