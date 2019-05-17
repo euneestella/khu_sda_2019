@@ -1,16 +1,16 @@
-## µ¥ÀÌÅÍ ºÒ·¯¿À±â
+## ë°ì´í„° ë¶ˆëŸ¬ì˜¤ê¸°
 demog <- read.table("C:/Users/eunee/sda/data/demog.csv", sep = ",")
 demog <- data.frame(t(demog))
 
 
-## µ¥ÀÌÅÍ Á¤¸® 1
+## ë°ì´í„° ì •ë¦¬ 1
 sdemog <- demog[,c("X1", "X6", "X8", "X11", "X15")]
 names(sdemog) <- c("year", "cdr", "tfr", "marn", "le0")
 sdemog <- sdemog[-1, ]
 rownames(sdemog) <- NULL
 
 
-## µ¥ÀÌÅÍ Á¤¸® 2
+## ë°ì´í„° ì •ë¦¬ 2
 sdemog$year_n1 <- as.numeric(sdemog$year)
 sdemog$year_n2 <- strtoi(sdemog$year)
 
@@ -30,9 +30,9 @@ sdemog$le0_n <- as.numeric(as.character(sdemog$le0))
 ndemog <- sdemog[, c("year_n3", "cdr_n1", "tfr_n", "marn_n2", "le0_n")]
 names(ndemog) <- c("year", "cdr", "tfr", "marn", "le0")
 
-############################ÀúÀå################################
+############################ì €ìž¥################################
 save(ndemog, file = "C:/Users/eunee/khu_sda_2019/data/demog_5var.RData")
 save(ndemog, file = "C:/Users/eunee/khu_sda_2019/data/demog_2.RData")
 
-## ÀÛ¾÷ °ø°£ ÀúÀå
+## ìž‘ì—… ê³µê°„ ì €ìž¥
 save.image(file = "C:/Users/eunee/khu_sda_2019/data/demog.RData")
