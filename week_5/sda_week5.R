@@ -28,7 +28,7 @@ sdemog$tfr_n <- as.numeric(as.character(sdemog$tfr))
 sdemog$le0_n <- as.numeric(as.character(sdemog$le0))
 
 ndemog <- sdemog[, c("year_n3", "cdr_n1", "tfr_n", "marn_n2", "le0_n")]
-names(ndemog) <- c("year", "cdr", "tfr", "marn", "l10")
+names(ndemog) <- c("year", "cdr", "tfr", "marn", "le0")
 
 ############################ÀúÀå################################
 save(ndemog, file = "C:/Users/eunee/sda/data/demog_5var.RData")
