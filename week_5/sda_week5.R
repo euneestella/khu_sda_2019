@@ -31,8 +31,8 @@ ndemog <- sdemog[, c("year_n3", "cdr_n1", "tfr_n", "marn_n2", "le0_n")]
 names(ndemog) <- c("year", "cdr", "tfr", "marn", "le0")
 
 ############################저장################################
-save(ndemog, file = "C:/Users/eunee/sda/data/demog_5var.RData")
-save(ndemog, file = "C:/Users/eunee/sda/data/demog_2.RData")
+save(ndemog, file = "C:/Users/eunee/khu_sda_2019/data/demog_5var.RData")
+save(ndemog, file = "C:/Users/eunee/khu_sda_2019/data/demog_2.RData")
 
 ## 작업 공간 저장
-save.image(file = "C:/Users/eunee/sda/data/demog.RData")
+save.image(file = "C:/Users/eunee/khu_sda_2019/data/demog.RData")
